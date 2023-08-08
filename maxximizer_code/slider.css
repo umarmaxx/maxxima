@@ -1,1 +1,72 @@
+        body {
+            margin: 0;
+            padding: 0;
+        }
+        
+        .carousel-container {
+            position: relative;
+        }
 
+        .slider-carousel {
+            display: flex;
+            overflow: hidden;
+            white-space: nowrap;
+            position: relative; /* Add position relative for next/prev button positioning */
+        }
+
+        .slide {
+            min-width: 100%; /* Each slide takes up the full width */
+            height: 300px; /* Adjust this value to change the height of the carousel */
+            display: inline-block;
+            text-align: center;
+            background-color: transparent; /* Set the background color to transparent */
+            transition: transform 0.5s; /* Add a smooth transition effect */
+        }
+
+        .slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain; /* Make the image fit the height of the slide while maintaining aspect ratio */
+            cursor: pointer;
+        }
+
+        /* To make the slider responsive, add media queries for different screen sizes */
+        @media screen and (max-width: 768px) {
+            .slide {
+                height: 200px; /* Adjust the height for smaller screens */
+            }
+        }
+
+        /* Next and Previous buttons styles */
+        .prev, .next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            font-size: 24px;
+            color: #fff;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 10px;
+        }
+
+        .prev {
+            left: 0;
+        }
+
+        .next {
+            right: 0;
+        }
+
+        /* Class to apply magnification effect */
+        .magnify {
+            transform: scale(1.5); /* Increase the image size */
+            z-index: 2;
+            transition: transform 0.5s; /* Add a smooth transition effect during magnification */
+        }
+
+        /* Class to apply demagnification effect */
+        .demagnify {
+            transform: scale(1); /* Restore the image size to its original */
+            z-index: 1; /* Ensure that the demagnified image stays below other slides */
+            transition: transform 0.5s; /* Add a smooth transition effect during demagnification */
+        }
