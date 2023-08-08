@@ -1,4 +1,5 @@
- let slideIndex = 1;
+document.addEventListener("DOMContentLoaded", function() {
+let slideIndex = 1;
 
         function moveSlide(n) {
             showSlides(slideIndex += n);
@@ -30,3 +31,4 @@
                 img.classList.add("magnify");
             }
         }
+});
